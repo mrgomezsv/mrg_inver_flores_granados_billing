@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="tmp_nc" name="NC">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <link rel="stylesheet" href="/elefante_billing/static/src/css/common.css"/>
+                    <link rel="stylesheet" href="/elefante_billing/static/src/css/nc.css"/>
+                    <div class="row detail_container">
+                        <t t-call="elefante_billing.nc_layout_header"/>
+                        <div class="table_container">
+                            <table class="main_table">
+                                <thead>
+                                    <tr/>
+                                </thead>
+                                <tbody>
+                                    <t t-call="elefante_billing.nc_lines_layout"/>
+                                </tbody>
+                            </table>
+                            <t t-call="elefante_billing.nc_foot_lines_layout"/>
+                        </div>
+                    </div>
+                    <div class="row detail_container_2">
+                        <t t-call="elefante_billing.nc_layout_header"/>
+                        <div class="table_container">
+                            <table class="main_table">
+                                <thead>
+                                    <tr/>
+                                </thead>
+                                <tbody>
+                                    <t t-call="elefante_billing.nc_lines_layout"/>
+                                </tbody>
+                            </table>
+                            <t t-call="elefante_billing.nc_foot_lines_layout"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

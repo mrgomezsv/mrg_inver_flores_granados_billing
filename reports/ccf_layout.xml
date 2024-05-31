@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ccf_layout_header">
+            <span t-att-style="o.calc_item_style_tr('cliente')" id="senyor"
+                  t-esc="(o.partner_id.business_name if o.partner_id.is_company else o.partner_id.name)[:60]"/>
+            <span t-att-style="o.calc_item_style_tr('fecha')" id="fecha" t-field="o.invoice_date"/>
+            <span t-att-style="o.calc_item_style_tr('direccion')" id="direccion"
+                  t-esc="(o.env['res.partner'].get_partner_addr(o.partner_id, ['street', 'street2', 'city']))[:70]"/>
+            <span t-att-style="o.calc_item_style_tr('registro')" id="nrc" t-field="o.partner_id.nrc"/>
+            <span t-att-style="o.calc_item_style_tr('municipio')" id="municipio" t-field="o.partner_id.municipality_tr_id"/>
+            <span t-att-style="o.calc_item_style_tr('nit')" id="nit" t-esc="o.partner_id.nit"/>
+            <span t-att-style="o.calc_item_style_tr('dui')" id="dui" t-field="o.partner_id.dui"/>
+            <span t-att-style="o.calc_item_style_tr('departamento')" id="departamento" t-field="o.partner_id.state_id"/>
+            <span t-att-style="o.calc_item_style_tr('giro')" id="giro" t-esc="(o.partner_id.business_nature or '')[:20]"/>
+            <span t-att-style="o.calc_item_style_tr('remision')" id="nota_remision" t-esc="'Remision'"/>
+            <span t-att-style="o.calc_item_style_tr('fecha_remision')" id="fecha_remision" t-esc="'Fecha'"/>
+            <span t-att-style="o.calc_item_style_tr('condiciones')" id="condiciones" t-esc="'Credito' if o.days_of_credit > 0 else 'Contado'"/>
+        </template>
+
+        <template id="ccf_lines_layout">
+            <tr t-foreach="o.invoice_line_ids" t-as="l">
+                <t t-if="l.product_id.totalizing_product_tr == True">
+                    <td>
+                        <span></span>
+                    </td>
+                    <td colspan="4">
+                        <span t-field="l.name"/>
+                        <p id="subtotal_tag">SUBTOTAL</p>
+                    </td>
+                    <td>
+                        <span t-esc="l.price_subtotal_no_discount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                        <t t-set="new_subtotal" t-value="o.partial_subtotal_tr + l.price_subtotal_no_discount "/>
+                        <p id="subtotal_line"><span t-esc="new_subtotal" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/></p>
+                    </td>
+                </t>
+                <t t-else="">
+                    <td t-att-style="o.calc_item_style_tr('cantidad')">
+                        <span t-field="l.quantity" t-options="{'widget': 'float', 'precision': 1}" t-if="not l.display_type"/>
+                    </td>
+                    <td t-att-style="o.calc_item_style_tr('descripcion')">
+                        <span t-field="l.name"/>
+                    </td>
+                    <td t-att-style="o.calc_item_style_tr('unitario')">
+                        <t t-set="dec_places" t-value="o.env.ref('treming_sv_billing.extra_prc_currency').decimal_places"/>
+                        <t t-set="curr_format" t-value="o.currency_id.symbol + '{:,.' + str(dec_places) + 'f}'"/>
+                        <span t-esc="curr_format.format(l.priceu_w_taxes)" t-if="not l.display_type"/>
+                    </td>
+                    <td t-att-style="o.calc_item_style_tr('v_no_sujeta_c')">
+                        <span t-if="l.sale_type == 'non_subject'">
+                            <span t-esc="l.price_subtotal_no_discount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"
+                                t-if="not l.display_type"/>
+                        </span>
+                    </td>
+                    <td t-att-style="o.calc_item_style_tr('v_exenta_c')">
+                        <span t-if="l.sale_type == 'exempt'">
+                            <span t-esc="l.price_subtotal_no_discount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"
+                                t-if="not l.display_type"/>
+                        </span>
+                    </td>
+                    <td t-att-style="o.calc_item_style_tr('v_afecta_c')">
+                        <span t-if="l.sale_type == 'taxed'">
+                            <span t-esc="l.price_subtotal_no_discount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"
+                                t-if="not l.display_type"/>
+                        </span>
+                    </td>
+                </t>
+            </tr>
+        </template>
+
+        <template id="ccf_foot_lines_layout">
+            <div id="total_div">
+                <span t-att-style="o.calc_item_style_tr('son')" id="total_letras" t-esc="o.total_in_letters + ' ' + o.currency_id.description"/>
+                <span t-att-style="o.calc_item_style_tr('v_no_sujeta_s')" id="suma_no_sujeta" t-esc="o.non_subject_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('v_exenta_s')" id="suma_exenta" t-esc="o.exempt_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('v_afecta_s')" id="suma_gravada" t-esc="o.taxed_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+
+                <t t-set="taxes" t-value="o.get_display_taxes()"/>
+                <span t-att-style="o.calc_item_style_tr('iva')" id="iva" t-esc="taxes['iva'][1]" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('sub_total')" id="subtotal" t-esc="o.subtotal_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('ventas_exentas')" id="exenta" t-esc="o.exempt_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <!--<span id="percibido" t-esc="abs(taxes['per'][1])" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>-->
+                <span t-att-style="o.calc_item_style_tr('ventas_no_sujetas')" id="no_sujeta" t-esc="o.non_subject_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('iva_retenido')" id="retenido" t-esc="abs(taxes['ret'][1])" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                <span t-att-style="o.calc_item_style_tr('total')" id="total" t-esc="o.amount_total" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+            </div>
+        </template>
+    </data>
+</odoo>

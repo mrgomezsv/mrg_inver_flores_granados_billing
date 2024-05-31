@@ -1,0 +1,209 @@
+/*.detail_container * {
+    border: 1px solid black;
+}*/
+
+.detail_container {
+    height: 155mm !important;
+    /*background: red;*/
+}
+
+.detail_container_2{
+    margin-top: 40mm;
+    position: relative;
+    height: 155mm !important;
+
+}
+
+.detail_container_2 *, .detail_container * {
+    font-size: 12px !important;
+}
+
+#senyor {
+    position: absolute;
+    top: 0mm;
+    left: 25mm;
+    width: 140mm;
+}
+
+#fecha {
+    position: absolute;
+    left: 185mm;
+}
+
+#senyor, #fecha {
+    top: 13mm;
+}
+
+#direccion {
+    position: absolute;
+    left: 30mm;
+    width: 120mm;
+}
+
+#nrc {
+    position: absolute;
+    left: 190mm;
+}
+
+#direccion, #nrc {
+    top: 18.7mm;
+}
+
+#municipio {
+    position: absolute;
+    left: 30mm;
+    width: 100mm;
+}
+
+#nit {
+    position: absolute;
+    left: 165mm;
+}
+#dui {
+    position: absolute;
+    left: 213mm;
+}
+
+#municipio, #nit, #dui {
+    top: 25mm;
+}
+
+#departamento {
+    position: absolute;
+    left: 35mm;
+    width: 90mm;
+}
+
+#giro {
+    position: absolute;
+    left: 185mm;
+}
+
+#departamento, #giro {
+    top: 31mm;
+}
+
+#nota_remision {
+    position: absolute;
+    left: 40mm;
+    width: 40mm;
+    color: white;
+}
+
+#fecha_remision {
+    position: absolute;
+    left: 95mm;
+    width: 25mm;
+    color: white;
+}
+
+#condiciones {
+    position: absolute;
+    left: 195mm;
+}
+
+#nota_remision, #fecha_remision, #condiciones {
+    top: 36mm;
+}
+
+.table_container {
+    position: absolute;
+    top: 42mm;
+    left: 11.5mm;
+}
+
+.table_container thead tr {
+    height: 6mm;
+}
+
+.main_table {
+    height: 70mm;
+    /*background: yellow;*/
+}
+
+.main_table td:nth-child(1) {
+    width: 20mm;
+    /*text-align: center !important;*/
+    text-align: left !important;
+}
+
+.main_table td:nth-child(2) {
+    width: 105mm;
+    text-align: left !important;
+}
+
+.main_table td:nth-child(3) {
+    width: 22mm;
+}
+
+.main_table td:nth-child(n+4):nth-child(-n+5) {
+    width: 26mm;
+}
+
+.main_table td:nth-child(6) {
+    width: 32mm;
+}
+
+#suma_exenta {
+    position: absolute;
+    right: 32mm;
+}
+
+#suma_no_sujeta {
+    position: absolute;
+    right: 58mm;
+}
+
+#total_letras {
+    position: absolute;
+    left: 13mm;
+    top: 0mm;
+    width: 95mm;
+}
+
+#suma_gravada {
+    position: absolute;
+}
+
+#suma_gravada, #suma_exenta, #suma_no_sujeta {
+    top: -2mm;
+}
+
+#iva {
+    position: absolute;
+    top: 4.5mm;
+}
+
+#exenta{
+   position: absolute;
+   top: 12mm;
+}
+
+#subtotal {
+    position: absolute;
+    top: 19mm;
+}
+
+#percibido {
+    position: absolute;
+    top: 17mm;
+}
+
+#retenido {
+    position: absolute;
+    top: 26.5mm;
+}
+
+#no_sujeta{
+    position: absolute;
+    top: 34mm;
+}
+
+#total {
+    position: absolute;
+    top: 41mm;
+}
+
+#suma_gravada, #iva, #subtotal, #percibido, #retenido, #total, #exenta, #no_sujeta {
+    right: 0mm;
+}

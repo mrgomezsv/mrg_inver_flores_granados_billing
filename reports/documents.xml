@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="elefante_cf_paper_format" model="report.paperformat">
+            <field name="name">ELEFANTE CF</field>
+			<field name="format">custom</field>
+            <field name="margin_top">24</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="page_height">356</field>
+            <field name="page_width">216</field>
+            <field name="header_line" eval="False"/>
+			<field name="orientation">Portrait</field>
+        </record>
+
+        <record id="elefante_cf_report" model="ir.actions.report">
+            <field name="name">ELEFANTE CF</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">elefante_billing.tmp_cf</field>
+            <field name="report_file">elefante_billing.tmp_cf</field>
+            <field name="print_report_name">(object.name).replace('/', '') or 'CF'</field>
+            <field name="paperformat_id" ref="elefante_cf_paper_format"/>
+        </record>
+
+        <record id="elefante_ccf_paper_format" model="report.paperformat">
+            <field name="name">ELEFANTE CCF</field>
+			<field name="format">custom</field>
+            <field name="margin_top">24</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="page_height">356</field>
+            <field name="page_width">216</field>
+            <field name="header_line" eval="False"/>
+			<field name="orientation">Portrait</field>
+        </record>
+
+        <record id="elefante_ccf_report" model="ir.actions.report">
+            <field name="name">ELEFANTE CCF</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">elefante_billing.tmp_ccf</field>
+            <field name="report_file">elefante_billing.tmp_ccf</field>
+            <field name="print_report_name">(object.name).replace('/', '') or 'CCF'</field>
+            <field name="paperformat_id" ref="elefante_ccf_paper_format"/>
+        </record>
+
+        <record id="elefante_fe_paper_format" model="report.paperformat">
+            <field name="name">ELEFANTE FE</field>
+			<field name="format">custom</field>
+            <field name="margin_top">24</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="page_height">356</field>
+            <field name="page_width">216</field>
+            <field name="header_line" eval="False"/>
+			<field name="orientation">Portrait</field>
+        </record>
+
+        <record id="elefante_fe_report" model="ir.actions.report">
+            <field name="name">ELEFANTE FE</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">elefante_billing.tmp_fe</field>
+            <field name="report_file">elefante_billing.tmp_fe</field>
+            <field name="print_report_name">(object.name).replace('/', '') or 'FE'</field>
+            <field name="paperformat_id" ref="elefante_fe_paper_format"/>
+        </record>
+
+        <record id="elefante_nc_paper_format" model="report.paperformat">
+            <field name="name">ELEFANTE NC</field>
+			<field name="format">custom</field>
+            <field name="margin_top">24</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="page_height">356</field>
+            <field name="page_width">216</field>
+            <field name="header_line" eval="False"/>
+			<field name="orientation">Portrait</field>
+        </record>
+
+        <record id="elefante_nc_report" model="ir.actions.report">
+            <field name="name">ELEFANTE NC</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">elefante_billing.tmp_nc</field>
+            <field name="report_file">elefante_billing.tmp_nc</field>
+            <field name="print_report_name">(object.name).replace('/', '') or 'NC'</field>
+            <field name="paperformat_id" ref="elefante_nc_paper_format"/>
+        </record>
+        
+    </data>
+</odoo>

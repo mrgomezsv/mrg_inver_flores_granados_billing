@@ -1,0 +1,175 @@
+/* .detail_container * {
+    border: 1px solid black;
+} */
+
+.detail_container {
+    margin-top: 20mm;
+    height: 155mm !important;
+    /*background: red;*/
+}
+
+.detail_container_2{
+    margin-top: 34.5mm;
+    position: relative;
+    height: 155mm !important;
+
+}
+
+.detail_container_2 *, .detail_container * {
+    font-size: 12px !important;
+}
+
+#senyor {
+    position: absolute;
+    /*top: 5mm;*/
+    left: 25mm;
+    width: 140mm;
+}
+
+#remision {
+    position: absolute;
+    /*top: 5mm;*/
+    left: 25mm;
+    width: 140mm;
+}
+
+#fecha {
+    position: absolute;
+    left: 185mm;
+}
+
+#senyor, #fecha {
+    top: 17mm;
+}
+
+#direccion {
+    position: absolute;
+    left: 30mm;
+    width: 120mm;
+}
+
+#nit {
+    position: absolute;
+    left: 180mm;
+}
+
+#direccion, #nit {
+    top: 22.7mm;
+}
+
+#municipio {
+    position: absolute;
+    left: 30mm;
+    width: 100mm;
+}
+
+#dui {
+    position: absolute;
+    left: 180mm;
+}
+
+#municipio, #dui {
+    top: 29mm;
+}
+
+#departamento, #pais {
+    position: absolute;
+    left: 37mm;
+    width: 90mm;
+}
+
+#condiciones {
+    position: absolute;
+    left: 195mm;
+}
+
+#departamento, #condiciones {
+    top: 35.5mm;
+}
+
+.detail_container {
+    height: 160mm !important;
+}
+
+.table_container {
+    position: absolute;
+    top: 42mm !important;
+    left: 10mm;
+}
+
+.main_table {
+    height: 70mm !important;
+}
+
+.main_table thead tr {
+    height: 7mm;
+}
+
+.table_container tbody tr td:nth-child(1) {
+    width: 20mm;
+    /*text-align: center;*/
+    text-align: left !important;
+}
+
+.table_container tbody tr td:nth-child(2) {
+    width: 105mm;
+    text-align: left;
+}
+
+.table_container tbody tr td:nth-child(3) {
+    width: 30.5mm;
+    text-align: center;
+}
+
+.table_container tbody tr td:nth-child(4), .table_container tbody tr td:nth-child(5) {
+    width: 22mm;
+}
+
+.table_container tbody tr td:nth-child(6) {
+    width: 27mm;
+    text-align: right;
+}
+
+#total_letras {
+    position: absolute;
+    width: 110mm !important;
+    top: 4mm !important;
+    left: 12mm !important;
+}
+
+#suma_gravada {
+    position: absolute;
+}
+
+#suma_gravada {
+    top: 4mm;
+}
+
+#subtotal {
+    position: absolute;
+    top: 11.3mm;
+}
+
+#retenido{
+    position: absolute;
+    top: 18mm;
+}
+
+#suma_no_sujeta{
+    position: absolute;
+    top: 25.2mm;
+}
+
+#suma_exento {
+    position: absolute;
+    top: 32mm;    
+}
+
+#total {
+    position: absolute;
+    top: 40mm;
+}
+
+#suma_gravada, #subtotal, #total, #retenido, #suma_exento, #suma_no_sujeta  {
+    right: 0mm;
+}
