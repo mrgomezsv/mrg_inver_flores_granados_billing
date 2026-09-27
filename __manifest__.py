@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 {
     'name': "ELEFANTE Facturación",
 
@@ -13,7 +13,7 @@
     'website': "http://www.treming.com",
 
     'category': 'Accounting/Accounting',
-    'version': '19.0.1.0.0',
+    'version': '20.0.1.0.0',
     'license': 'LGPL-3',
 
     'depends': ['treming_sv_billing', "treming_municipalities", "fya_applied_to", "treming_subtotal_product", "treming_print_format_account"],
