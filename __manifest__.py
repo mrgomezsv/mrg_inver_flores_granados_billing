@@ -13,7 +13,8 @@
     'website': "http://www.treming.com",
 
     'category': 'Accounting/Accounting',
-    'version': '0.1',
+    'version': '18.0.1.0.0',
+    'license': 'LGPL-3',
 
     'depends': ['treming_sv_billing', "treming_municipalities", "fya_applied_to", "treming_subtotal_product", "treming_print_format_account"],
 
@@ -28,4 +29,5 @@
         "reports/nc_layout.xml",
         "reports/nc_tmp.xml",
     ],
+    'installable': True,
 }
